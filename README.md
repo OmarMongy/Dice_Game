@@ -1,37 +1,46 @@
-**Formal Report: Design and Implementation of Dice Game Module**
+## Dice_Game
 
-**1. Introduction**
+## Abstract:
 
-The "dice_game" module is designed to implement a simple state machine that simulates a dice game. It takes three input signals: clk (clock), reset_n (active low asynchronous reset), and ena (enable signal). The module provides a 3-bit output dice, which represents the current state of the dice game.
+The "Dice_Game_Simulation" repository contains a Verilog implementation of a simple state machine representing a dice rolling game. This project serves as a basic example of how to design and simulate a state machine in digital logic. The module defines various states and their transitions to represent the possible outcomes of rolling a six-sided dice.
 
-**2. Module Description**
+## Introduction:
 
-The "dice_game" module consists of two always blocks. The first always block is sensitive to the positive edge of the clock (posedge clk) and the negative edge of the reset signal (negedge reset_n). The second always block is sensitive to any change in its input (always @(*)).
+In digital design, state machines are widely used to model systems that exhibit distinct states and undergo transitions based on input stimuli. The "Dice_Game_Simulation" repository demonstrates the implementation of a dice rolling game using a state machine designed in Verilog. The repository includes all necessary files and documentation to understand, simulate, and test the dice game module.
 
-The state_reg and state_next registers hold the current and next states of the state machine, respectively. The initial state after reset is set to s1.
+## Inputs:
 
-When ena is high, the state machine progresses through various states based on the current state (state_reg). The state transitions are as follows:
-- s1 ➡ s6
-- s2 ➡ s1
-- s3 ➡ s5
-- s4 ➡ s2
-- s5 ➡ s4
-- s6 ➡ s3
+The "dice_game" module accepts the following input signals:
 
-For any other state not listed above, the next state (state_next) remains the same as the current state (state_reg).
+clk: This is the clock input, used for synchronous operations to control the timing of state updates and transitions.
 
-**3. Design Summary**
+reset_n: An asynchronous active-low reset signal. When asserted low, it initializes the state machine to a predefined starting state, ensuring a predictable state when the system powers on or undergoes a reset.
 
-The design of the "dice_game" module is relatively straightforward, as it implements a simple state machine. The module operates in synchronous mode with respect to the clock and asynchronous mode with respect to the reset signal. The state transitions are determined by the value of the ena input signal.
+ena: The enable signal controls the state transitions. When asserted, the module proceeds with state transitions based on the combinational logic defined within the module. Conversely, deasserting ena maintains the current state, effectively freezing the state machine.
 
-**4. Simulation Results**
+## Outputs:
 
-Before synthesizing the design, it is essential to perform functional simulations to verify the correctness of the state machine's behavior. The simulation should cover various scenarios, including normal operation and reset conditions. Additionally, the sensitivity to the ena signal should be verified.
+The "dice_game" module provides a single output signal:
 
-**5. Synthesis and Implementation**
+dice[2:0]: This 3-bit vector represents the current state of the dice in the game. The value of dice corresponds to one of the eight predefined states, indicating the outcome of the dice roll. Each state represents a particular face of the dice (1 to 6) and two additional states to represent the beginning (s1) and an unused state (s0).
 
-Once the design has been verified through simulations, the "dice_game" module can be synthesized and implemented on the target hardware. The design's synthesis report should be thoroughly checked for any critical warnings or timing violations.
+## Source Code and Sim:
 
-**6. Conclusions**
+src/: This directory contains the Verilog source code for the "dice_game" module.
 
-The "dice_game" module has been successfully designed and implemented, providing a functional state machine to simulate a dice game. The design has been verified through simulations, ensuring its correct behavior under different scenarios.
+dice_game.v: Verilog implementation of the "dice_game" module, including the state logic and state transition rules.
+Testbench:
+
+testbench/: This directory contains the testbench and test cases for the "dice_game" module.
+
+dice_game_tb.v: Testbench for verifying the functionality of the "dice_game" module.
+
+test_cases.txt: Input test cases and expected outputs for various scenarios.
+
+## License:
+
+LICENSE: The license file that specifies the terms and conditions of using the "Dice_Game_Simulation" repository.
+README:
+
+README.md: This README file provides an overview of the "Dice_Game_Simulation" repository, including an abstract, introduction, inputs, and outputs of the "dice_game" module, and a brief description of the repository's structure.
+This GitHub repository serves as a complete package for understanding, implementing, simulating, and testing the dice rolling game module using Verilog. Developers can explore the provided documentation, examine the source code, run the testbench, and even contribute to the projec
