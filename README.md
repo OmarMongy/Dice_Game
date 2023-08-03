@@ -4,7 +4,7 @@
 
 The "Dice_Game_Simulation" repository contains a Verilog implementation of a simple state machine representing a dice rolling game. This project serves as a basic example of how to design and simulate a state machine in digital logic. The module defines various states and their transitions to represent the possible outcomes of rolling a six-sided dice.
 
-![Image of a dice game](https://w7.pngwing.com/pngs/228/796/png-transparent-snake-eyes-poker-dice-sticker-dice-angle-dice-sticker.png)
+![Image of a dice game](https://cdn-icons-png.flaticon.com/512/421/421155.png?w=740&t=st=1691022088~exp=1691022688~hmac=6204975df2631675cdb655f3098f0c02d86f0f840dd0e0586c97ba890a657d97)
 
 ## Introduction:
 
